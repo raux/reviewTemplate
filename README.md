@@ -1,6 +1,7 @@
-# reviewTemplate
-LateX template for review responses in SE.
-How to Use:
+# A Template for the Response Letter
+This is a simple LateX template for review responses in Software Engineering Conferences
+
+##How to Use:
 
 Editor/Reviewer comments
 + For each comment you use the \subsection command
