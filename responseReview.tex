@@ -17,7 +17,7 @@
 \marginsize{2.5cm}{3cm}{1.5cm}{3.5cm}
 
 % macros
-\newcommand{\question}[1]{\vspace{1em} \noindent \hangindent=0em \textbf{\textcolor{Maroon}{Comment :~}}#1}
+\newcommand{\question}[1]{\vspace{1em} \noindent \hangindent=0em \textbf{\textcolor{Maroon}{Comment:~}}#1}
 \newcommand{\answer}[1]{~\\\vspace{0.1em} \hangindent=2.5em \textbf{\textcolor{NavyBlue}{\uline{Response}:~}}\textcolor{NavyBlue}{#1}}
 
 %\renewcommand\thesubsection{\question(\alph{subsection})\alpha\c@section.\@arabic\c@subsection}
@@ -28,7 +28,7 @@
 \newcommand\getcurrentref[1]{%
 	\ifnumequal{\value{#1}}{0}
 	{E}
-	{\the\value{#1}}%
+	{R\the\value{#1}}%
 } 
 
 \makeatletter
@@ -68,22 +68,26 @@
 	
 	\subsection{} This is the normal editor comments
 	
-	\answer {This is a   comment from Editor. Put in $\backslash question \{\}$command.}
+	\answer {This is a response from authors. }
 	
 		
 	% ======================================================= %
 	\section{Response to Reviewer \getCurrentSectionNumber}
 	
-	\subsection{} This is the normal editor comments
+	\subsection{} This is the normal reviewer comments
 	
-	\answer {This is a comment  from Editor. Put in $\backslash question \{\}$command.}
+	\answer {This is a response from authors. }
+	
+	\subsection{} This is the normal reviewer comments
+	
+	\answer {This is a response from authors. This response will be abit longer. This is a response from authors. This response will be abit longer. This is a response from authors. This response will be abit longer. This is a response from authors. This response will be abit longer }
 	
 	% ======================================================= %
 	\section{Response to Reviewer \getCurrentSectionNumber}
 	
-	\subsection{} This is the normal editor comments
+	\subsection{} This is the normal reviewer comments
 	
-	\answer {This is a comment  from Editor. Put in $\backslash question \{\}$command.}
+	\answer {This is a response from authors. }
 		
 	\section{Conclusions}
 	
