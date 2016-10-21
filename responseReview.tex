@@ -20,8 +20,7 @@
 \newcommand{\question}[1]{\vspace{1em} \noindent \hangindent=0em \textbf{\textcolor{Maroon}{Comment:~}}#1}
 \newcommand{\answer}[1]{~\\\vspace{0.1em} \hangindent=2.5em \textbf{\textcolor{NavyBlue}{\uline{Response}:~}}\textcolor{NavyBlue}{#1}}
 
-%\renewcommand\thesubsection{\question(\alph{subsection})\alpha\c@section.\@arabic\c@subsection}
-\renewcommand\thesubsection{\normalsize\color{Maroon}{\uline{\question\getCurrentSectionNumber(\alph{subsection})}}}
+\renewcommand\thesubsection{\normalsize\color{Maroon}{\uline{\question\getCurrentSectionNumber.\arabic{subsection}}}}
 \titleformat{\subsection}[runin]
 {\normalsize\normalfont\bfseries}{\thesubsection}{1em}{}
 
