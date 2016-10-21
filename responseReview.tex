@@ -1,0 +1,97 @@
+% ======================================================= %
+% Document: TEMPLATE FOR RESPONSES TO REVIEWERS
+% Author: Andrea Ballatore, edited by Raula G. Kula
+% Date: Oct, 2016
+% ======================================================= %
+\documentclass{article}
+
+% packages
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{etoolbox}
+\usepackage{titlesec} 
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage{anysize}
+\marginsize{2.5cm}{3cm}{1.5cm}{3.5cm}
+
+% macros
+\newcommand{\question}[1]{\vspace{1em} \noindent \hangindent=0em \textbf{\textcolor{Maroon}{Comment :~}}#1}
+\newcommand{\answer}[1]{~\\\vspace{0.1em} \hangindent=2.5em \textbf{\textcolor{NavyBlue}{\uline{Response}:~}}\textcolor{NavyBlue}{#1}}
+
+%\renewcommand\thesubsection{\question(\alph{subsection})\alpha\c@section.\@arabic\c@subsection}
+\renewcommand\thesubsection{\normalsize\color{Maroon}{\uline{\question\getCurrentSectionNumber(\alph{subsection})}}}
+\titleformat{\subsection}[runin]
+{\normalsize\normalfont\bfseries}{\thesubsection}{1em}{}
+
+\newcommand\getcurrentref[1]{%
+	\ifnumequal{\value{#1}}{0}
+	{E}
+	{\the\value{#1}}%
+} 
+
+\makeatletter
+\renewcommand\thesection{}
+\makeatother
+
+\newcommand{\getCurrentSectionNumber}{\getcurrentref{section}}
+
+\usepackage[normalem]{ulem}
+\definecolor{darkred}{rgb}{1,.6,.6}
+\DeclareRobustCommand\problemline{\bgroup\markoverwith{\textcolor{darkred}{\rule[-0.9ex]{4pt}{3pt}}}\ULon}
+\DeclareRobustCommand{\problem}[1]{\problemline{#1}} % soul
+\setcounter{secnumdepth}{2}
+\setcounter{section}{-1}
+
+\newcommand{\newlen}[0]{TODO}
+
+\begin{document}
+	% ======================================================= %
+	\title{Responses to Reviewers\\~\\0000-0-00­-00111\\submitted to\\Marvel Comics Journal}
+	
+	%\subtitle{Subtitle}
+	\author{Bruce Wayne, Clark Kent and Anthony Stark}
+	\maketitle 
+	% ======================================================= %
+	\noindent Dear Editor and Reviewers,\\
+	
+	\noindent We thank you $<$ message to editors and reviewers $>$.
+	In the remainder of this document, we describe the changes that we have made to the paper for resubmission.
+	
+%	\section{Letter from editor}
+%	
+%	$<$ insert letter from editor if relevant $>$
+	
+	% ======================================================= %
+	\section{Response to Editor}
+	
+	\subsection{} This is the normal editor comments
+	
+	\answer {This is a   comment from Editor. Put in $\backslash question \{\}$command.}
+	
+		
+	% ======================================================= %
+	\section{Response to Reviewer \getCurrentSectionNumber}
+	
+	\subsection{} This is the normal editor comments
+	
+	\answer {This is a comment  from Editor. Put in $\backslash question \{\}$command.}
+	
+	% ======================================================= %
+	\section{Response to Reviewer \getCurrentSectionNumber}
+	
+	\subsection{} This is the normal editor comments
+	
+	\answer {This is a comment  from Editor. Put in $\backslash question \{\}$command.}
+		
+	\section{Conclusions}
+	
+	Final message to editor and reviewers.
+	
+	\hfill Kind regards,
+	
+	\hfill The Authors
+	% ======================================================= %
+\end{document}
+% ======================================================= %
