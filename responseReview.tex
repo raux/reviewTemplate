@@ -5,7 +5,10 @@
 % ======================================================= %
 \documentclass{article}
 
+
 % packages
+
+\usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage[usenames,dvipsnames]{xcolor}
@@ -15,10 +18,59 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{anysize}
 \marginsize{2.5cm}{3cm}{1.5cm}{3.5cm}
+\usepackage{listings}
+\usepackage[tight,footnotesize]{subfigure}
+\usepackage{tikz}
+\def\checkmark{\textcolor{darkblue}{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle; fixed }} 
+
+\newcommand{\eg}{e.g.,}
+\newcommand{\ie}{i.e.,}
+
+%\newcommand\raula[1]{\nbnote{Raula}{\textcolor{blue}{#1}}}
+\newcommand{\dmc}{DU}
+\newcommand{\dmcfull}{System Dependency Update}
+
+\graphicspath{{pics/}}
+% and their extensions so you won't have to specify these with
+% every instance of \includegraphics
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+
+\newcommand{\lib}[2]{$\mathcal{L}$(\texttt{#1},\textit{v.#2)}}
+\newcommand{\sys}[2]{$\mathcal{S}$(\texttt{#1},\textit{v.#2)}}
+
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstset{
+	basicstyle=\ttfamily\small,
+	columns=fullflexible,
+	showstringspaces=false,
+	commentstyle=\color{gray}\upshape,
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstdefinelanguage{XML}
+{
+	backgroundcolor=\color{backcolour},
+	morestring=[b]",
+	morestring=[s]{>}{<},
+	morecomment=[s]{<?}{?>},
+	stringstyle=\color{black},
+	identifierstyle=\color{darkblue},
+	keywordstyle=\color{cyan},
+	morekeywords={dependency,version,dependencies}% list your attributes here
+}
 
 % macros
-\newcommand{\question}[1]{\vspace{1em} \noindent \hangindent=0em \textbf{\textcolor{Maroon}{Comment:~}}#1}
-\newcommand{\answer}[1]{~\\\vspace{0.1em} \hangindent=2.5em \textbf{\textcolor{NavyBlue}{\uline{Response}:~}}\textcolor{NavyBlue}{#1}}
+\newcommand{\question}[1]{\vspace{1em} \noindent \hangindent=0em \textbf{\textcolor{Maroon}{}}#1}
+\newcommand{\answer}[1]{~\\\vspace{0.1em} \hangindent=2.5em \textbf{\textcolor{darkblue}{\uline{Response}:~}}\textcolor{darkblue}{#1}}
 
 \renewcommand\thesubsection{\normalsize\color{Maroon}{\uline{\question\getCurrentSectionNumber.\arabic{subsection}}}}
 \titleformat{\subsection}[runin]
@@ -42,6 +94,35 @@
 \DeclareRobustCommand{\problem}[1]{\problemline{#1}} % soul
 \setcounter{secnumdepth}{2}
 \setcounter{section}{-1}
+
+
+\newcommand{\comment}[1]{\indent\indent\hangindent=2.5em{\color{darkblue}#1}}
+\newcommand{\inlineComment}[1]{{\color{darkblue}-#1}}
+
+\lstdefinelanguage{inlineText}
+{
+	backgroundcolor=\color{backcolour},
+	breaklines=true,
+	basicstyle=\ttfamily\small\color{darkblue},
+	columns=flexible,
+	xleftmargin=2.5em,
+	showstringspaces=false,
+	commentstyle=\color{gray}\upshape,
+	numbers=none,                    
+	numbersep=0pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	keywordstyle=\color{red},
+	showtabs=false,                  
+	tabsize=1,
+	mathescape=true,
+	literate=
+	{=}{$\leftarrow{}$}{1}
+	{==}{$={}$}{1},
+	breakindent=0pt,
+	resetmargins=true
+	% list your attributes here
+}
 
 \newcommand{\newlen}[0]{TODO}
 
@@ -68,24 +149,41 @@
 	\subsection{} This is the normal editor comments
 	
 	\answer {This is a response from authors. }
+	\label{E:1}
+	
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}[language= inlineText]
+		<<Section 1.0, Introduction>>
+		...This is used for some quotes to the changed manuscript....
+		\end{lstlisting}
+	\end{minipage}
+	
+	\indent\comment{This is a comment without the Response prefix, usually after a inline text}
 	
 		
 	% ======================================================= %
 	\section{Response to Reviewer \getCurrentSectionNumber}
 	
 	\subsection{} This is the normal reviewer comments
+	\label{R1.1}
 	
-	\answer {This is a response from authors. }
+	\answer {This is a response from authors. At the bottom we have a reference to related responses}
 	
+	\comment{[Related responses: \ref{E:1}]}
 	\subsection{} This is the normal reviewer comments
 	
 	\answer {This is a response from authors. This response will be abit longer. This is a response from authors. This response will be abit longer. This is a response from authors. This response will be abit longer. This is a response from authors. This response will be abit longer }
+	
+	
+	\label{R:R2.5} \textit{Minors:} \\
+	
+	$\bullet$ \texttt{p2:} footnote 2 is out of sync \checkmark \inlineComment{add for some readers}
 	
 	% ======================================================= %
 	\section{Response to Reviewer \getCurrentSectionNumber}
 	
 	\subsection{} This is the normal reviewer comments
-	
+	\label{R2.1}
 	\answer {This is a response from authors. }
 		
 	\section{Conclusions}
